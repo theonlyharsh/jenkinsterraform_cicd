@@ -2,14 +2,14 @@ provider "aws" {
   region = "eu-west-1"
 }
 resource "aws_vpc" "name" {
-    cidr_block = "10.0.0.0/16"
+    cidr_block = "10.0.0.0/24"
     tags = {
     "name" = "terraformvpc"
     }
   }
 resource "aws_subnet" "name" {
     vpc_id = aws_vpc.name.id
-    cidr_block = "10.0.1.0/24"
+    cidr_block = "10.0.0.0/28"
     tags = {
       "name" = "terraformsubnet"
     }
